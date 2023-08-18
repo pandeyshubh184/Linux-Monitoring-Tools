@@ -1,2 +1,119 @@
 # Linux-Monitoring-Tools
 It involves a menu driven program , along with while loop , to display the monitoring tools as per user's choice.  Since there are various monitoring tools, this project enables for user to observe the operation of RAM, hard disk etc.
+vi project
+#[under vi tab]
+n=y
+while [ $n =y ]
+do
+echo "*****Project on MOnitoring Tools*****"
+echo "1. Process Monitoring Tools"
+echo "2. Disk Monitoring Tools"
+echo "3. Processor Monitoring Tools"
+echo "4. Log Files Tools"
+echo "5. Network Monitoring Tools"
+echo "6. User tools"
+echo "7. To Exit the Script"
+echo -n "Enter the Choice"
+read choice
+echo
+
+if [ $choice -eq 1 ];then
+echo "*****Process monitoring tools*****"
+echo 
+echo " Select any one "
+echo " 101. for VM Status "
+echo " 102. for currently Running Process"
+echo " 103. To get System Logs "
+echo " 104. To observe partation table"
+read c1
+
+case $c1 in 101) vmstat;;
+            102) ps -e;;
+            103) journalctl;;
+            104) fdisk -l;;
+            *) echo "Invalid Entry" ::
+esac
+
+elif [ $choice -eq 2 ];then
+echo " *****Disk Monitoring tools*****"
+echo
+echo "Select any one"
+echo " 201. for Disk Space usage "
+echo " 202. for input/output statistics "
+echo " 203. for System Activity report "
+read c2
+
+case $c2 in 201) ls;;
+            202) iostat;;
+            203) sar;;
+            *) echo "Invalid Input" ::
+esac
+
+elif [ $choice -eq 3 ];then
+echo "******Processsor monitoring Tools*****"
+echo
+echo "Select any one"
+echo " 301. To Displala the performace of all lgical processor in the system "
+read c3
+
+case $c3 in 301) mpstat;;
+             *) echo "Invalid Input" ::
+esac
+
+elif [ $choice -eq 4 ];then
+echo "*****Log Files Tools*****"
+echo 
+echo " Select any One "
+echo " 401.  To find a another command or file with the help of key word "
+echo " 402. To get the last line of the content in file "
+echo " 403. To get the first line of the content in a file"
+read c4
+
+case $c4 in 401) cd /<directory_name> | grep  <name>;;
+            402) tail -l /etc/passwd;;
+            403) head -l /etc/passwd;;
+            *) echo "Invalid Input" ::
+esac
+
+elif [ $choice -eq 5 ];then
+echo "*****Network Monitoring Tools*****"
+echo
+echo " Select any one"
+echo " 501. to get IP Adress "
+echo " 502. Get DNS Server info "
+echo " 503. get information about Subnet "
+echo " 504. Enter network Configuration manager"
+read c5
+
+case $c5 in 501) ifconfig | head -3;;
+            502) cat /etc/resolv.conf;;
+            503) netstat;;
+            504) nmtui;;
+            *) echo "Invalid Input" ::
+esac 
+
+elif [ $choice -eq 6 ];then
+echo
+echo "Select any one"
+echo " 601. See Current user logged in "
+echo " 602. Present Working Directory"
+read c6
+
+case $c6 in 601) whoami;;
+            602) pwd;;
+            *) echo "Invalid Input" ::
+esac
+
+echo -n "Do you wish to continue "
+read n
+if [ $n = "n" ];then
+exit
+fi
+elif [ $choice -eq 7 ];then
+echo "Ecxiting the script "
+exit 
+fi
+done
+
+#after writing the code
+sh project { runs the code }
